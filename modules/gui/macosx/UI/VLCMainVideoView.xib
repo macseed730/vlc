@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment version="101000" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="VLCMainVideoViewController">
+            <connections>
+                <outlet property="bottomBarView" destination="1GA-GG-Sdx" id="0UY-5o-eVD"/>
+                <outlet property="centralControlsStackView" destination="CvV-yX-Nbh" id="zyI-Rb-bem"/>
+                <outlet property="controlsBar" destination="3" id="Mfq-2w-2uR"/>
+                <outlet property="fakeTitleBar" destination="jnw-gL-nrF" id="7lZ-al-c3d"/>
+                <outlet property="fakeTitleBarHeightConstraint" destination="wY4-If-nIp" id="wPt-X4-mgu"/>
+                <outlet property="mainControlsView" destination="D4V-Zd-qvB" id="KwM-ya-ETn"/>
+                <outlet property="overlayView" destination="FGS-tq-54S" id="RSC-7m-N0y"/>
+                <outlet property="playlistButton" destination="Drq-if-dw4" id="BZe-Cr-mzZ"/>
+                <outlet property="playlistButtonTopConstraint" destination="VyM-t4-y6F" id="V94-GS-KcS"/>
+                <outlet property="playlistButtonTrailingConstraint" destination="rWa-NJ-Aju" id="tzU-Iz-CXl"/>
+                <outlet property="returnButton" destination="UoQ-34-Pox" id="nyY-OF-9zj"/>
+                <outlet property="returnButtonLeadingConstraint" destination="BkP-RA-uxn" id="CsI-gH-SYp"/>
+                <outlet property="returnButtonTopConstraint" destination="0l2-eC-67c" id="78K-sz-kmV"/>
+                <outlet property="view" destination="WRu-Ic-lQK" id="B9p-x5-Kd8"/>
+                <outlet property="voutView" destination="mAS-4a-RS8" id="GeX-XO-HYC"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="3" userLabel="Main Video View Controls Bar" customClass="VLCControlsBarCommon">
+            <connections>
+                <outlet property="backwardButton" destination="V9d-hX-iyg" id="ZFn-jn-7OB"/>
+                <outlet property="forwardButton" destination="sF5-Z0-bef" id="H6w-Le-NAK"/>
+                <outlet property="fullscreenButton" destination="dYZ-ri-Kra" id="Cw2-BS-QG9"/>
+                <outlet property="fullscreenButtonWidthConstraint" destination="quS-fD-Od7" id="6hT-nR-yQI"/>
+                <outlet property="muteVolumeButton" destination="tVB-Xs-sJJ" id="snj-OU-aTI"/>
+                <outlet property="playButton" destination="PCC-8a-sVF" id="ddT-ZM-Jhz"/>
+                <outlet property="songNameTextField" destination="lEW-MN-FFU" id="btX-L9-7TO"/>
+                <outlet property="timeField" destination="3ri-8b-8mw" id="f0i-Gh-R8V"/>
+                <outlet property="timeSlider" destination="qNZ-Fh-W8i" id="Fkk-fj-s5Q"/>
+                <outlet property="trailingTimeField" destination="f4v-2z-dQ1" id="AXX-AU-lF0"/>
+                <outlet property="volumeSlider" destination="lyY-Zo-4aH" id="HbX-7f-pNR"/>
+            </connections>
+        </customObject>
+        <customView id="WRu-Ic-lQK">
+            <rect key="frame" x="0.0" y="0.0" width="720" height="480"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="mAS-4a-RS8" customClass="VLCVoutView">
+                    <rect key="frame" x="0.0" y="0.0" width="720" height="480"/>
+                </customView>
+                <box appearanceType="darkAqua" boxType="custom" borderType="none" title="Box" titlePosition="noTitle" transparent="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4V-Zd-qvB">
+                    <rect key="frame" x="0.0" y="0.0" width="720" height="480"/>
+                    <view key="contentView" wantsLayer="YES" id="1tI-8K-e3c">
+                        <rect key="frame" x="0.0" y="0.0" width="720" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView blendingMode="withinWindow" material="titlebar" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="jnw-gL-nrF">
+                                <rect key="frame" x="0.0" y="480" width="720" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="wY4-If-nIp"/>
+                                </constraints>
+                            </visualEffectView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="FGS-tq-54S" customClass="VLCMainVideoViewOverlayView">
+                                <rect key="frame" x="0.0" y="0.0" width="720" height="480"/>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="1GA-GG-Sdx">
+                                <rect key="frame" x="0.0" y="0.0" width="720" height="107"/>
+                                <subviews>
+                                    <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f4v-2z-dQ1" customClass="VLCTimeField">
+                                        <rect key="frame" x="623" y="20" width="79" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="8Zz-X6-yY1"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="right" placeholderString="0:00" id="FlV-4J-8Jc">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField wantsLayer="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="lEW-MN-FFU" customClass="VLCWrappableTextField">
+                                        <rect key="frame" x="18" y="59" width="495" height="28"/>
+                                        <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Nothing Playing" usesSingleLineMode="YES" id="8l0-zS-fOa">
+                                            <font key="font" metaFont="systemBold" size="24"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qNZ-Fh-W8i" customClass="VLCSlider">
+                                        <rect key="frame" x="18" y="37" width="684" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="xm6-li-LpC"/>
+                                        </constraints>
+                                        <sliderCell key="cell" controlSize="small" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" sliderType="linear" id="dZM-dm-qvL" customClass="VLCSliderCell"/>
+                                        <connections>
+                                            <action selector="timeSliderAction:" target="3" id="W32-wA-rN9"/>
+                                        </connections>
+                                    </slider>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sJu-ZK-5QH">
+                                        <rect key="frame" x="531" y="59" width="169" height="32"/>
+                                        <subviews>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y8F-hr-iaW">
+                                                <rect key="frame" x="0.0" y="0.0" width="117" height="32"/>
+                                                <subviews>
+                                                    <button wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tVB-Xs-sJJ" customClass="VLCImageButton">
+                                                        <rect key="frame" x="0.0" y="-1" width="32" height="33"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="32" id="PGL-rL-Qcp"/>
+                                                            <constraint firstAttribute="width" secondItem="tVB-Xs-sJJ" secondAttribute="height" multiplier="1:1" id="qTO-ie-xwE"/>
+                                                        </constraints>
+                                                        <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="volume.3.fill" catalog="system" imagePosition="only" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="skE-5H-zgX">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="volumeAction:" target="3" id="4W0-Ft-7pO"/>
+                                                        </connections>
+                                                    </button>
+                                                    <slider verticalHuggingPriority="750" horizontalCompressionResistancePriority="800" translatesAutoresizingMaskIntoConstraints="NO" id="lyY-Zo-4aH" customClass="VLCVolumeSlider">
+                                                        <rect key="frame" x="35" y="8" width="84" height="17"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="80" id="SeC-cP-5Dr"/>
+                                                        </constraints>
+                                                        <sliderCell key="cell" controlSize="mini" continuous="YES" state="on" alignment="left" maxValue="512" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="Zws-Wl-Ctp" customClass="VLCVolumeSliderCell"/>
+                                                        <connections>
+                                                            <action selector="volumeAction:" target="3" id="rPg-yg-qAG"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                            <button wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dYZ-ri-Kra" customClass="VLCImageButton">
+                                                <rect key="frame" x="137" y="-1" width="32" height="33"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="dYZ-ri-Kra" secondAttribute="height" multiplier="1:1" id="cHQ-Fu-L8k"/>
+                                                    <constraint firstAttribute="width" constant="32" id="quS-fD-Od7"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="NSEnterFullScreenTemplate" imagePosition="only" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="Z8g-js-0W6">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="fullscreen:" target="3" id="0Kk-UV-WtF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3ri-8b-8mw" customClass="VLCTimeField">
+                                        <rect key="frame" x="18" y="20" width="79" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="S9v-aM-nfL"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="left" placeholderString="0:00" usesSingleLineMode="YES" id="0ya-Dd-ecT">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="f4v-2z-dQ1" firstAttribute="trailing" secondItem="qNZ-Fh-W8i" secondAttribute="trailing" id="0DA-7x-5iR"/>
+                                    <constraint firstAttribute="bottom" secondItem="3ri-8b-8mw" secondAttribute="bottom" constant="20" id="2r5-04-JeD"/>
+                                    <constraint firstItem="sJu-ZK-5QH" firstAttribute="trailing" secondItem="qNZ-Fh-W8i" secondAttribute="trailing" id="A0O-Nw-jLo"/>
+                                    <constraint firstItem="f4v-2z-dQ1" firstAttribute="top" secondItem="qNZ-Fh-W8i" secondAttribute="bottom" constant="5" id="CT6-59-4xB"/>
+                                    <constraint firstItem="lEW-MN-FFU" firstAttribute="trailing" secondItem="sJu-ZK-5QH" secondAttribute="leading" constant="-20" id="DXE-mO-c4m"/>
+                                    <constraint firstItem="lEW-MN-FFU" firstAttribute="leading" secondItem="qNZ-Fh-W8i" secondAttribute="leading" id="Qc0-Ft-6Na"/>
+                                    <constraint firstItem="sJu-ZK-5QH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1GA-GG-Sdx" secondAttribute="top" constant="10" id="Vjf-YQ-NXR"/>
+                                    <constraint firstItem="3ri-8b-8mw" firstAttribute="leading" secondItem="qNZ-Fh-W8i" secondAttribute="leading" id="WfQ-8B-O7I"/>
+                                    <constraint firstAttribute="trailing" secondItem="qNZ-Fh-W8i" secondAttribute="trailing" constant="20" id="YDi-aH-oOI"/>
+                                    <constraint firstItem="lEW-MN-FFU" firstAttribute="top" secondItem="1GA-GG-Sdx" secondAttribute="top" constant="20" id="aCc-Gf-kqc"/>
+                                    <constraint firstItem="lEW-MN-FFU" firstAttribute="bottom" secondItem="qNZ-Fh-W8i" secondAttribute="top" constant="-5" id="dxq-b6-tct"/>
+                                    <constraint firstItem="qNZ-Fh-W8i" firstAttribute="leading" secondItem="1GA-GG-Sdx" secondAttribute="leading" constant="20" id="gYg-Ig-cLg"/>
+                                    <constraint firstItem="3ri-8b-8mw" firstAttribute="top" secondItem="qNZ-Fh-W8i" secondAttribute="bottom" constant="5" id="jze-EU-1TL"/>
+                                    <constraint firstItem="sJu-ZK-5QH" firstAttribute="bottom" secondItem="qNZ-Fh-W8i" secondAttribute="top" constant="-5" id="xsM-6a-gdn"/>
+                                </constraints>
+                                <shadow key="shadow" blurRadius="2">
+                                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </shadow>
+                            </customView>
+                            <stackView wantsLayer="YES" distribution="fill" orientation="horizontal" alignment="centerY" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CvV-yX-Nbh">
+                                <rect key="frame" x="260" y="208" width="200" height="64"/>
+                                <subviews>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="V9d-hX-iyg" customClass="VLCImageButton">
+                                        <rect key="frame" x="0.0" y="7" width="48" height="51"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="XBm-GM-29d"/>
+                                            <constraint firstAttribute="width" secondItem="V9d-hX-iyg" secondAttribute="height" multiplier="1:1" id="mjk-wN-72b"/>
+                                        </constraints>
+                                        <shadow key="shadow" blurRadius="20">
+                                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </shadow>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="backward.fill" catalog="system" imagePosition="only" alignment="center" continuous="YES" imageScaling="proportionallyUpOrDown" inset="2" id="fFm-ZG-R1p">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <color key="contentTintColor" red="0.99999600649999998" green="1" blue="1" alpha="0.85338267140000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="bwd:" target="3" id="nDS-qm-Htv"/>
+                                        </connections>
+                                    </button>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="PCC-8a-sVF" customClass="VLCImageButton">
+                                        <rect key="frame" x="68" y="-2" width="64" height="68"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="PCC-8a-sVF" secondAttribute="height" multiplier="1:1" id="2jF-Y0-kn3"/>
+                                            <constraint firstAttribute="width" constant="64" id="OHb-xJ-sqM"/>
+                                        </constraints>
+                                        <shadow key="shadow" blurRadius="30">
+                                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </shadow>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="play.fill" catalog="system" imagePosition="overlaps" alignment="center" alternateImage="VLCPauseTemplate" imageScaling="proportionallyUpOrDown" inset="2" id="Jk0-sw-EOp">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <color key="contentTintColor" red="0.99999600649999998" green="1" blue="1" alpha="0.85338267136324741" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="toggle" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="play:" target="3" id="owy-mi-Djp"/>
+                                        </connections>
+                                    </button>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="sF5-Z0-bef" customClass="VLCImageButton">
+                                        <rect key="frame" x="152" y="7" width="48" height="51"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="M5n-CD-fd3"/>
+                                            <constraint firstAttribute="width" secondItem="sF5-Z0-bef" secondAttribute="height" multiplier="1:1" id="b5c-td-Idb"/>
+                                        </constraints>
+                                        <shadow key="shadow" blurRadius="20">
+                                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </shadow>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="forward.fill" catalog="system" imagePosition="only" alignment="center" continuous="YES" imageScaling="proportionallyUpOrDown" inset="2" id="I4n-VO-oYa">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <color key="contentTintColor" red="0.99999600649999998" green="1" blue="1" alpha="0.85338267140000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="fwd:" target="3" id="uPX-Xa-CwO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UoQ-34-Pox">
+                                <rect key="frame" x="20" y="431" width="22" height="29"/>
+                                <shadow key="shadow" blurRadius="2">
+                                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </shadow>
+                                <buttonCell key="cell" type="recessed" bezelStyle="recessed" imagePosition="only" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CU4-UE-tsW">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <imageReference key="image" image="NSLeftFacingTriangleTemplate" symbolScale="large"/>
+                                </buttonCell>
+                                <color key="contentTintColor" red="0.99999600649999998" green="1" blue="1" alpha="0.85338267140000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="returnToLibrary:" target="-2" id="rnL-S1-zSR"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Drq-if-dw4">
+                                <rect key="frame" x="669" y="431" width="31" height="29"/>
+                                <shadow key="shadow" blurRadius="2">
+                                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </shadow>
+                                <buttonCell key="cell" type="recessed" bezelStyle="recessed" imagePosition="only" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VDP-ql-lW8">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <imageReference key="image" image="NSListViewTemplate" symbolScale="large"/>
+                                </buttonCell>
+                                <color key="contentTintColor" red="0.99999600649999998" green="1" blue="1" alpha="0.85338267140000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="togglePlaylist:" target="-2" id="WrP-vg-etw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="UoQ-34-Pox" firstAttribute="top" secondItem="1tI-8K-e3c" secondAttribute="top" constant="20" id="0l2-eC-67c"/>
+                            <constraint firstItem="UoQ-34-Pox" firstAttribute="leading" secondItem="1tI-8K-e3c" secondAttribute="leading" constant="20" id="BkP-RA-uxn"/>
+                            <constraint firstItem="FGS-tq-54S" firstAttribute="top" secondItem="jnw-gL-nrF" secondAttribute="bottom" id="Doc-Mq-oOI"/>
+                            <constraint firstAttribute="bottom" secondItem="1GA-GG-Sdx" secondAttribute="bottom" id="KQN-vk-oha"/>
+                            <constraint firstItem="1GA-GG-Sdx" firstAttribute="leading" secondItem="1tI-8K-e3c" secondAttribute="leading" id="Qn0-ts-S0d"/>
+                            <constraint firstAttribute="trailing" secondItem="jnw-gL-nrF" secondAttribute="trailing" id="SDl-7h-q9o"/>
+                            <constraint firstItem="Drq-if-dw4" firstAttribute="top" secondItem="1tI-8K-e3c" secondAttribute="top" constant="20" id="VyM-t4-y6F"/>
+                            <constraint firstItem="CvV-yX-Nbh" firstAttribute="centerX" secondItem="1tI-8K-e3c" secondAttribute="centerX" id="YMh-Zl-NSA"/>
+                            <constraint firstItem="jnw-gL-nrF" firstAttribute="leading" secondItem="1tI-8K-e3c" secondAttribute="leading" id="Z37-TJ-B2D"/>
+                            <constraint firstAttribute="trailing" secondItem="1GA-GG-Sdx" secondAttribute="trailing" id="dWk-NI-ekN"/>
+                            <constraint firstItem="CvV-yX-Nbh" firstAttribute="centerY" secondItem="1tI-8K-e3c" secondAttribute="centerY" id="l2Y-IR-aus"/>
+                            <constraint firstAttribute="bottom" secondItem="FGS-tq-54S" secondAttribute="bottom" id="ps4-nL-1Xc"/>
+                            <constraint firstItem="FGS-tq-54S" firstAttribute="leading" secondItem="1tI-8K-e3c" secondAttribute="leading" id="qfd-OD-CHv"/>
+                            <constraint firstAttribute="trailing" secondItem="Drq-if-dw4" secondAttribute="trailing" constant="20" id="rWa-NJ-Aju"/>
+                            <constraint firstItem="jnw-gL-nrF" firstAttribute="top" secondItem="1tI-8K-e3c" secondAttribute="top" id="t6W-5p-Vgt"/>
+                            <constraint firstAttribute="trailing" secondItem="FGS-tq-54S" secondAttribute="trailing" id="t7T-OV-bf0"/>
+                        </constraints>
+                    </view>
+                    <color key="fillColor" red="0.0" green="0.0" blue="0.0" alpha="0.35060533940397354" colorSpace="custom" customColorSpace="sRGB"/>
+                </box>
+            </subviews>
+            <constraints>
+                <constraint firstItem="D4V-Zd-qvB" firstAttribute="bottom" secondItem="mAS-4a-RS8" secondAttribute="bottom" id="AaN-hq-IgD"/>
+                <constraint firstItem="mAS-4a-RS8" firstAttribute="top" secondItem="WRu-Ic-lQK" secondAttribute="top" id="F3X-8V-3Hg"/>
+                <constraint firstAttribute="bottom" secondItem="mAS-4a-RS8" secondAttribute="bottom" id="RPX-tv-ZTb"/>
+                <constraint firstItem="D4V-Zd-qvB" firstAttribute="top" secondItem="mAS-4a-RS8" secondAttribute="top" id="RUD-Fr-n5w"/>
+                <constraint firstItem="mAS-4a-RS8" firstAttribute="leading" secondItem="WRu-Ic-lQK" secondAttribute="leading" id="Ygq-Dt-Lbg"/>
+                <constraint firstAttribute="trailing" secondItem="mAS-4a-RS8" secondAttribute="trailing" id="jOZ-5U-ips"/>
+                <constraint firstItem="D4V-Zd-qvB" firstAttribute="leading" secondItem="mAS-4a-RS8" secondAttribute="leading" id="rIC-FU-Uxl"/>
+                <constraint firstItem="D4V-Zd-qvB" firstAttribute="trailing" secondItem="mAS-4a-RS8" secondAttribute="trailing" id="z4h-I8-bGU"/>
+            </constraints>
+            <point key="canvasLocation" x="66" y="-232"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="NSEnterFullScreenTemplate" width="20" height="18"/>
+        <image name="NSLeftFacingTriangleTemplate" width="12" height="16"/>
+        <image name="NSListViewTemplate" width="21" height="14"/>
+        <image name="VLCPauseTemplate" width="128" height="128"/>
+        <image name="backward.fill" catalog="system" width="20" height="12"/>
+        <image name="forward.fill" catalog="system" width="20" height="12"/>
+        <image name="play.fill" catalog="system" width="12" height="13"/>
+        <image name="volume.3.fill" catalog="system" width="22" height="15"/>
+    </resources>
+</document>

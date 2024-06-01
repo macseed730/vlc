@@ -1,0 +1,12 @@
+--- libshout/src/common/httpp/encoding.c.strings	2015-11-20 20:51:36.000000000 +0100
++++ libshout/src/common/httpp/encoding.c	2018-03-29 11:00:04.524097700 +0200
+@@ -27,7 +27,9 @@
+ #endif
+ 
+ #include <sys/types.h>
++#ifdef HAVE_STRINGS_H
+ #include <strings.h>
++#endif
+ #include <string.h>
+ #include <stdlib.h>
+ #include <stdio.h>
